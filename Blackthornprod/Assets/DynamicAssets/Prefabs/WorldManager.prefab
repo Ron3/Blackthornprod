@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1231517880475954}
+  m_IsPrefabParent: 1
+--- !u!1 &1231517880475954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4891930140040300}
+  - component: {fileID: 114070316933882414}
+  m_Layer: 0
+  m_Name: WorldManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1563117245792852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4711592736613158}
+  m_Layer: 0
+  m_Name: RoomsContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4711592736613158
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1563117245792852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4891930140040300}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4891930140040300
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1231517880475954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4711592736613158}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114070316933882414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1231517880475954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c93826d9190684fa3f68cf0f32927c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomsContainer: {fileID: 4711592736613158}
+  bottomRooms:
+  - {fileID: 1861128096021340, guid: 6620577e3554a3642830954153a1ead3, type: 2}
+  - {fileID: 1288734493312106, guid: dd5917cbcf6666e4fa407385ec5e276d, type: 2}
+  - {fileID: 1202655254235112, guid: b130509046757ca4fab59159a1949cf3, type: 2}
+  - {fileID: 1972760912520096, guid: f8f193f52fde8834387d3a7d7af69dd4, type: 2}
+  topRooms:
+  - {fileID: 1972760912520096, guid: f8f193f52fde8834387d3a7d7af69dd4, type: 2}
+  - {fileID: 1599165569209878, guid: 8fffc3aca4444db498191ef7682915f1, type: 2}
+  - {fileID: 1431409528629720, guid: 961dd3c9fe0026941a0a2e7727a60331, type: 2}
+  - {fileID: 1819696743715748, guid: 49e40ec0b3b4b5840b557e5726418435, type: 2}
+  leftRooms:
+  - {fileID: 1861128096021340, guid: 6620577e3554a3642830954153a1ead3, type: 2}
+  - {fileID: 1784853931359370, guid: 8e392096b193ce149b8ae0fb724af5d9, type: 2}
+  - {fileID: 1952411998940060, guid: 53cf33dea81a18642ad80ee815763c2e, type: 2}
+  - {fileID: 1599165569209878, guid: 8fffc3aca4444db498191ef7682915f1, type: 2}
+  rightRooms:
+  - {fileID: 1819696743715748, guid: 49e40ec0b3b4b5840b557e5726418435, type: 2}
+  - {fileID: 1623653269752716, guid: b846ff33bf2796d4ea7ef2a5d5b3866b, type: 2}
+  - {fileID: 1952411998940060, guid: 53cf33dea81a18642ad80ee815763c2e, type: 2}
+  - {fileID: 1202655254235112, guid: b130509046757ca4fab59159a1949cf3, type: 2}
+  roomsTemplates:
+  - roomType: 0
+    roomPrefab: {fileID: 1784853931359370, guid: 8e392096b193ce149b8ae0fb724af5d9,
+      type: 2}
+  - roomType: 1
+    roomPrefab: {fileID: 1952411998940060, guid: 53cf33dea81a18642ad80ee815763c2e,
+      type: 2}
+  - roomType: 2
+    roomPrefab: {fileID: 1623653269752716, guid: b846ff33bf2796d4ea7ef2a5d5b3866b,
+      type: 2}
+  - roomType: 3
+    roomPrefab: {fileID: 1431409528629720, guid: 961dd3c9fe0026941a0a2e7727a60331,
+      type: 2}
+  - roomType: 4
+    roomPrefab: {fileID: 1599165569209878, guid: 8fffc3aca4444db498191ef7682915f1,
+      type: 2}
+  - roomType: 5
+    roomPrefab: {fileID: 1819696743715748, guid: 49e40ec0b3b4b5840b557e5726418435,
+      type: 2}
+  - roomType: 6
+    roomPrefab: {fileID: 1288734493312106, guid: dd5917cbcf6666e4fa407385ec5e276d,
+      type: 2}
+  - roomType: 7
+    roomPrefab: {fileID: 1861128096021340, guid: 6620577e3554a3642830954153a1ead3,
+      type: 2}
+  - roomType: 8
+    roomPrefab: {fileID: 1202655254235112, guid: b130509046757ca4fab59159a1949cf3,
+      type: 2}
+  - roomType: 9
+    roomPrefab: {fileID: 1972760912520096, guid: f8f193f52fde8834387d3a7d7af69dd4,
+      type: 2}
