@@ -276,6 +276,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4038999202706496}
+  - component: {fileID: 114753375483883986}
   m_Layer: 0
   m_Name: BRoom
   m_TagString: Untagged
@@ -1737,6 +1738,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 0
+--- !u!114 &114753375483883986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1288734493312106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 942cb1d870a4a34409ff53726ba70b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawners:
+  - {fileID: 114021246798383786}
 --- !u!212 &212016264498224898
 SpriteRenderer:
   m_ObjectHideFlags: 1

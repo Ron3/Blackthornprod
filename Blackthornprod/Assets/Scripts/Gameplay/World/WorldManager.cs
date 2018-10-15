@@ -16,22 +16,54 @@ public class WorldManager : MonoBehaviour {
 	}
 
 	public Transform roomsContainer;
+	public GameObject closedRoom;
 
 	public GameObject[] bottomRooms;
 	public GameObject[] topRooms;
 	public GameObject[] leftRooms;
 	public GameObject[] rightRooms;
 
+
 	[SerializeField] private RoomsTemplates[] roomsTemplates;
+	private List<RoomTemplate> roomList;
+
+
+	public bool CanCreateRoom {
+		get {
+			return roomList.Count < 10;
+		}
+	}
+
+	public bool IsRoomCreatedOnPos(Vector3 position) {
+		for(int i = 0; i < roomList.Count; i++) {
+			if(roomList[i].transform.position == position) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private void Start() {
+		roomList = new List<RoomTemplate>();
+		RoomTemplate roomPrefab = GetRoomTemplate(RoomsTypes.C).GetComponent<RoomTemplate>();
+		RoomTemplate room = Instantiate(roomPrefab, transform.position, roomPrefab.transform.rotation, roomsContainer);
+		AddRoom(room);
+	}
 
 	public GameObject GetRoomTemplate(DoorOpenings firstDir, DoorOpenings secondDir) {
 		RoomsTypes neededType = GetRoomType(firstDir, secondDir);
-		for(int  i = 0; i < roomsTemplates.Length; i++) {
-			if(roomsTemplates[i].roomType == neededType) {
+		GetRoomTemplate(neededType);
+		Debug.LogError("Get Room Prefab error for firstDir " + firstDir + " secondDir " + secondDir);
+		return null;
+	}
+
+	private GameObject GetRoomTemplate(RoomsTypes roomType) {
+		for (int i = 0; i < roomsTemplates.Length; i++) {
+			if (roomsTemplates[i].roomType == roomType) {
 				return roomsTemplates[i].roomPrefab;
 			}
 		}
-		Debug.LogError("Get Room Prefab error for firstDir " + firstDir + " secondDir " + secondDir);
+		Debug.LogError("Get Room Prefab error for type " + roomType);
 		return null;
 	}
 
@@ -53,6 +85,10 @@ public class WorldManager : MonoBehaviour {
 		return RoomsTypes.L;
 	}
 
+	public void AddRoom(RoomTemplate template) {
+		roomList.Add(template);
+	}
+
 }
 
 [Serializable] public struct RoomsTemplates
@@ -72,7 +108,8 @@ public enum RoomsTypes
 	B,
 	BL,
 	BR,
-	TB
+	TB,
+	C
 }
 
 public enum DoorOpenings

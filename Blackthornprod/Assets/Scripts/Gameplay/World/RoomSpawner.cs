@@ -9,10 +9,10 @@ public class RoomSpawner : MonoBehaviour {
 	private bool spawnedRoom = false;
 
 	private void Start() {
-		Invoke("SpawnRoom", 0.3f);
+		SpawnRoom();
 	}
 
-	private void SpawnRoom() {
+	public void SpawnRoom() {
 		if (!spawnedRoom) {
 			switch (openingDirection) {
 				case DoorOpenings.Bottom:
@@ -33,18 +33,32 @@ public class RoomSpawner : MonoBehaviour {
 	}
 
 	private void CreateRoom(GameObject[] templateRooms) {
-		int rand = Random.Range(0, templateRooms.Length);
-		Instantiate(templateRooms[rand], transform.position, templateRooms[rand].transform.rotation, WorldManager.Instance.roomsContainer);
+		if (WorldManager.Instance.CanCreateRoom) {
+			int rand = Random.Range(0, templateRooms.Length);
+			CreateSingleRoom(templateRooms[rand]);
+		} else {
+			CreateSingleRoom(WorldManager.Instance.closedRoom);
+		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D other) {
-		if (other.CompareTag("SpawnPoint")) {
-			RoomSpawner otherRS = other.GetComponent<RoomSpawner>();
-			if (otherRS.spawnedRoom == false && spawnedRoom == false) {
-				GameObject roomPrefab = WorldManager.Instance.GetRoomTemplate(openingDirection, otherRS.openingDirection);
-				Instantiate(roomPrefab, transform.position, roomPrefab.transform.rotation, WorldManager.Instance.roomsContainer);
+	private void CreateClosedRoom() {
+	
+	}
+
+	private void CreateSingleRoom(GameObject roomTemplate) {
+		if (!WorldManager.Instance.IsRoomCreatedOnPos(transform.position)) {
+			RoomTemplate room = Instantiate(roomTemplate, transform.position, roomTemplate.transform.rotation, WorldManager.Instance.roomsContainer).GetComponent<RoomTemplate>();
+			WorldManager.Instance.AddRoom(room);
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision) {
+		if (collision.CompareTag("SpawnPoint")) {
+			if (collision.GetComponent<RoomSpawner>().spawnedRoom == false && spawnedRoom == false) {
+				CreateSingleRoom(WorldManager.Instance.closedRoom);
+				Destroy(gameObject);
 			}
-			Destroy(gameObject);
+			spawnedRoom = true;
 		}
 	}
 

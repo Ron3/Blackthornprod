@@ -196,6 +196,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4326530349396040}
+  - component: {fileID: 114163820911370314}
   m_Layer: 0
   m_Name: BRRoom
   m_TagString: Untagged
@@ -1789,6 +1790,20 @@ EdgeCollider2D:
   - {x: 0, y: 0}
   - {x: 7, y: 0}
   - {x: 7, y: 3}
+--- !u!114 &114163820911370314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202655254235112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 942cb1d870a4a34409ff53726ba70b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawners:
+  - {fileID: 114825991992010056}
+  - {fileID: 114285975544392694}
 --- !u!114 &114285975544392694
 MonoBehaviour:
   m_ObjectHideFlags: 1
