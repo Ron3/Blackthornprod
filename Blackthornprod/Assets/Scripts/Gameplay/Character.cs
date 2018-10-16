@@ -41,27 +41,9 @@ public class Character : MonoBehaviour {
 		transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
 	}
 
-	public void ShootUp() {
+	public void Shoot(Vector3 direction) {
 		if (CanShoot) {
-			ShootBullet(transform.position, Vector3.up);
-		}
-	}
-
-	public void ShootDown() {
-		if (CanShoot) {
-			ShootBullet(transform.position, Vector3.down);
-		}
-	}
-
-	public void ShootLeft() {
-		if (CanShoot) {
-			ShootBullet(transform.position, Vector3.left);
-		}
-	}
-
-	public void ShootRight() {
-		if (CanShoot) {
-			ShootBullet(transform.position, Vector3.right);
+			ShootBullet(transform.position, direction);
 		}
 	}
 
@@ -69,6 +51,13 @@ public class Character : MonoBehaviour {
 		Bullet b = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(direction));
 		b.Shoot(direction, shootSpeed);
 		currentTime = 0f;
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision) {
+		if (collision.CompareTag("Door")) {
+			Door door = collision.gameObject.GetComponent<Door>();
+			ActionsController.Instance.SendOnChangeRoom(door.RoomPosition);
+		}
 	}
 
 }

@@ -29,14 +29,22 @@ public class PlayerController : MonoBehaviour {
 			character.MoveRight();
 		}
 
-		if (Input.GetKey(KeyCode.UpArrow)) {
-			character.ShootUp();
+		if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow)) {
+			character.Shoot(Vector3.up + Vector3.left);
+		} else if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow)) {
+			character.Shoot(Vector3.up + Vector3.right);
+		} else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow)) {
+			character.Shoot(Vector3.down + Vector3.left);
+		} else if(Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow)) {
+			character.Shoot(Vector3.down + Vector3.right);
+		} else if (Input.GetKey(KeyCode.UpArrow)) {
+			character.Shoot(Vector3.up);
 		} else if (Input.GetKey(KeyCode.DownArrow)) {
-			character.ShootDown();
+			character.Shoot(Vector3.down);
 		} else if (Input.GetKey(KeyCode.LeftArrow)) {
-			character.ShootLeft();
+			character.Shoot(Vector3.left);
 		} else if (Input.GetKey(KeyCode.RightArrow)) {
-			character.ShootRight();
+			character.Shoot(Vector3.right);
 		}
 	}
 

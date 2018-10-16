@@ -16,4 +16,12 @@ public class ActionsController {
 	}
 	private ActionsController() { }
 
+	public Action<Vector3> onChangeRoom;
+
+	public void SendOnChangeRoom(Vector3 roomPos) {
+		if(onChangeRoom != null) {
+			onChangeRoom(roomPos);
+		}
+	}
+
 }

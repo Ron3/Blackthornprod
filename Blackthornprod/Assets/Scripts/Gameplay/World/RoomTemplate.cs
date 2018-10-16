@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomTemplate : MonoBehaviour {
+
+	[SerializeField] private List<Door> doors;
+
 	private void Start() {
-		Debug.Log("Start");
+		foreach(Door d in doors) {
+			d.InitDoorWithRoom(gameObject.transform);
+		}
 	}
 }
