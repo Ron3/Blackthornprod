@@ -15,6 +15,7 @@ public class WorldManager : MonoBehaviour {
 		}
 	}
 
+	[SerializeField] private float addBossWaitTime;
 	public Transform roomsContainer;
 	public GameObject closedRoom;
 
@@ -23,10 +24,11 @@ public class WorldManager : MonoBehaviour {
 	public GameObject[] leftRooms;
 	public GameObject[] rightRooms;
 
-
 	[SerializeField] private RoomsTemplates[] roomsTemplates;
 	private List<RoomTemplate> roomList;
 
+	private RoomTemplate startRoom;
+	private RoomTemplate endRoom;
 
 	public bool CanCreateRoom {
 		get {
@@ -44,10 +46,25 @@ public class WorldManager : MonoBehaviour {
 	}
 
 	private void Start() {
+		CreateRooms();
+		Invoke("AddBoss", addBossWaitTime);
+	}
+
+	private void CreateRooms() {
 		roomList = new List<RoomTemplate>();
 		RoomTemplate roomPrefab = GetRoomTemplate(RoomsTypes.C).GetComponent<RoomTemplate>();
 		RoomTemplate room = Instantiate(roomPrefab, transform.position, roomPrefab.transform.rotation, roomsContainer);
+		startRoom = room;
 		AddRoom(room);
+	}
+
+	private void AddBoss() {
+		for(int i = roomList.Count - 1; i >= 0; i--) {
+			if(roomList[i].gameObject.name != "ClosedRoom") {
+				roomList[i].AddBoss();
+				return;
+			}
+		}
 	}
 
 	public GameObject GetRoomTemplate(DoorOpenings firstDir, DoorOpenings secondDir) {
@@ -88,6 +105,8 @@ public class WorldManager : MonoBehaviour {
 	public void AddRoom(RoomTemplate template) {
 		roomList.Add(template);
 	}
+
+
 
 }
 

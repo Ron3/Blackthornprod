@@ -48,7 +48,9 @@ public class RoomSpawner : MonoBehaviour {
 	private void CreateSingleRoom(GameObject roomTemplate) {
 		if (!WorldManager.Instance.IsRoomCreatedOnPos(transform.position)) {
 			RoomTemplate room = Instantiate(roomTemplate, transform.position, roomTemplate.transform.rotation, WorldManager.Instance.roomsContainer).GetComponent<RoomTemplate>();
-			WorldManager.Instance.AddRoom(room);
+			if (WorldManager.Instance.CanCreateRoom) {
+				WorldManager.Instance.AddRoom(room);
+			}
 		}
 	}
 

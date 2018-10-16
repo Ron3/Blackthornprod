@@ -111,7 +111,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.17911176, g: 0.19383873, b: 0.21698111, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -212,6 +212,8 @@ MonoBehaviour:
   - roomType: 10
     roomPrefab: {fileID: 1125638885279392, guid: 51452adaf4805554d8997eb973941df8,
       type: 2}
+  debugEndRoom: {fileID: 1526962253560964, guid: 0f8b38953f51d9a41be88a7753eeeb24,
+    type: 2}
 --- !u!114 &114824296011591020
 MonoBehaviour:
   m_ObjectHideFlags: 1

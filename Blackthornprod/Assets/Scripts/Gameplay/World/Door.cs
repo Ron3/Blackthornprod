@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Door : MonoBehaviour {
 
-	private Transform roomTransform;
+	private RoomTemplate roomRef;
 
 	public Vector3 RoomPosition {
 		get {
-			return roomTransform.position;
+			return roomRef.transform.position;
 		}
 	}
 
-	public void InitDoorWithRoom(Transform room) {
-		roomTransform = room;
+	public void InitDoorWithRoom(RoomTemplate room) {
+		roomRef = room;
 	}
 
 }

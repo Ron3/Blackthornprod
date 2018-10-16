@@ -3,12 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomTemplate : MonoBehaviour {
-
+	
 	[SerializeField] private List<Door> doors;
+
+	private float maxX = 7.5f;
+	private float maxY = 3.5f;
+
+	private EnemyBase boss;
+	private List<EnemyBase> spawnedEnemies = new List<EnemyBase>();
 
 	private void Start() {
 		foreach(Door d in doors) {
-			d.InitDoorWithRoom(gameObject.transform);
+			d.InitDoorWithRoom(this);
+		}
+		if (!gameObject.name.Contains("CRoom") && !gameObject.name.Contains("ClosedRoom")) {
+			CreateEnemies();
 		}
 	}
+
+	public void AddBoss() {
+		ClearEnemies();
+		boss = Instantiate(GameManager.Instance.CurrentLevelInfo.levelBoss, transform.position, Quaternion.identity, transform);
+	}
+
+	public Vector3 GetRandomPosition() {
+		float randX = Random.Range(-maxX, maxX);
+		float randY = Random.Range(-maxY, maxY);
+		return transform.position + new Vector3(randX, randY, 0f);
+	}
+
+	private void CreateEnemies() {
+		LevelInfo ll = GameManager.Instance.CurrentLevelInfo;
+		int spawnChance = Random.Range(0, ll.enemySpawnChance);
+		if(spawnChance == 0) {
+			int enemyNb = Random.Range(1, ll.maxNbOfEnemiesPerRoom);
+			for(int i = 0; i < enemyNb; i++) {
+				int enemyType = Random.Range(0, ll.enemiesPrefabs.Count);
+				EnemyBase tmpEnemy = Instantiate(ll.enemiesPrefabs[enemyType], GetRandomPosition(), Quaternion.identity, transform);
+				spawnedEnemies.Add(tmpEnemy);
+			}
+		}
+	}
+
+	private void ClearEnemies() {
+		for(int i = 0; i < spawnedEnemies.Count; i++) {
+			Destroy(spawnedEnemies[i].gameObject);
+		}
+		spawnedEnemies.Clear();
+	}
+
 }

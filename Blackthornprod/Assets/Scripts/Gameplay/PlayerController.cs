@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour {
 
 	[SerializeField] private Character character;
 
+	public Transform CharacterTransform {
+		get {
+			return character.transform;
+		}
+	}
+
 	private void Update() {
 		if (Input.GetKey(KeyCode.W)) {
 			character.MoveUp();
