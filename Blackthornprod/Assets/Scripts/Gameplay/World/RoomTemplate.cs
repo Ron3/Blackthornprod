@@ -30,6 +30,12 @@ public class RoomTemplate : MonoBehaviour {
 	}
 
 	public void ActivateRoom() {
+
+		if(boss != null) {
+			boss.Activate(this);
+			return;
+		}
+
 		for(int i = 0; i < spawnedEnemies.Count; i++) {
 			if (spawnedEnemies[i] != null) {
 				spawnedEnemies[i].Activate(this);
@@ -59,8 +65,8 @@ public class RoomTemplate : MonoBehaviour {
 		int spawnChance = Random.Range(0, ll.enemySpawnChance);
 		if(spawnChance == 0) {
 			int enemyNb = Random.Range(1, ll.maxNbOfEnemiesPerRoom);
+			int enemyType = Random.Range(0, ll.enemiesPrefabs.Count);
 			for(int i = 0; i < enemyNb; i++) {
-				int enemyType = Random.Range(0, ll.enemiesPrefabs.Count);
 				EnemyBase tmpEnemy = Instantiate(ll.enemiesPrefabs[enemyType], GetRandomPosition(), Quaternion.identity, transform);
 				spawnedEnemies.Add(tmpEnemy);
 			}

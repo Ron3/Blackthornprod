@@ -37,7 +37,7 @@ public class EnemyBase : MonoBehaviour, IActivable, IDamageble {
 		}
 		currentState.OnExit();
 		currentState = enemyStates[currentStateIndex];
-		currentState.OnUpdate();
+		currentState.OnEnter(this, PlayerController.Instance.CharacterTransform, WorldManager.Instance.currentRoom);
 	}
 
 	protected virtual void Update() {
