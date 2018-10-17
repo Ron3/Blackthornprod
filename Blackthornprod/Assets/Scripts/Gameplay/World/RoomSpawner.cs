@@ -10,6 +10,11 @@ public class RoomSpawner : MonoBehaviour {
 
 	private void Start() {
 		SpawnRoom();
+		Invoke("ClearPoint", 5f);
+	}
+
+	private void ClearPoint() {
+		Destroy(gameObject);
 	}
 
 	public void SpawnRoom() {

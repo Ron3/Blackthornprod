@@ -4,4 +4,5 @@ using UnityEngine;
 
 public interface IActivable {
 	void Activate(RoomTemplate roomRef);
+	void Deactivate();
 }

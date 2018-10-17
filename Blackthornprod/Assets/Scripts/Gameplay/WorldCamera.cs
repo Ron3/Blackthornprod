@@ -14,11 +14,11 @@ public class WorldCamera : MonoBehaviour {
 	private bool isLerping;
 
 	private void Start() {
-		ActionsController.Instance.onChangeRoom += OnChangeRoom;
+		ActionsController.Instance.onChangeCameraPosition += OnChangeRoom;
 	}
 
 	private void OnDestroy() {
-		ActionsController.Instance.onChangeRoom -= OnChangeRoom;
+		ActionsController.Instance.onChangeCameraPosition -= OnChangeRoom;
 	}
 
 	private void OnChangeRoom(Vector3 roomPos) {

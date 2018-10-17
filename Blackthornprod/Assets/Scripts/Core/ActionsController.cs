@@ -16,11 +16,18 @@ public class ActionsController {
 	}
 	private ActionsController() { }
 
-	public Action<Vector3> onChangeRoom;
+	public Action<Vector3> onChangeCameraPosition;
+	public Action<RoomTemplate> onChangeRoom;
 
-	public void SendOnChangeRoom(Vector3 roomPos) {
+	public void SendOnChangeRoom(RoomTemplate room) {
 		if(onChangeRoom != null) {
-			onChangeRoom(roomPos);
+			onChangeRoom(room);
+		}
+	}
+
+	public void SendOnChangeCameraPosition(Vector3 roomPos) {
+		if(onChangeCameraPosition != null) {
+			onChangeCameraPosition(roomPos);
 		}
 	}
 

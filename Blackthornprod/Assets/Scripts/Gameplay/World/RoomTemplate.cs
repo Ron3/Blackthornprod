@@ -21,9 +21,31 @@ public class RoomTemplate : MonoBehaviour {
 		}
 	}
 
+	public void DeactivateRoom() {
+		for(int i =0; i< spawnedEnemies.Count; i++) {
+			if(spawnedEnemies[i] != null) {
+				spawnedEnemies[i].Deactivate();
+			}
+		}
+	}
+
+	public void ActivateRoom() {
+		for(int i = 0; i < spawnedEnemies.Count; i++) {
+			if (spawnedEnemies[i] != null) {
+				spawnedEnemies[i].Activate(this);
+			}
+		}
+	}
+
 	public void AddBoss() {
 		ClearEnemies();
 		boss = Instantiate(GameManager.Instance.CurrentLevelInfo.levelBoss, transform.position, Quaternion.identity, transform);
+	}
+
+	public Vector2 ClampedPos {
+		get {
+			return transform.position + new Vector3(maxX, maxY, 0f);
+		}
 	}
 
 	public Vector3 GetRandomPosition() {

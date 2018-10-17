@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c93826d9190684fa3f68cf0f32927c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  addBossWaitTime: 3
   roomsContainer: {fileID: 4711592736613158}
   closedRoom: {fileID: 1543891446057030, guid: db883b888389bf84cbc5dca512d4739e, type: 2}
   bottomRooms:
@@ -163,21 +164,33 @@ MonoBehaviour:
   - {fileID: 1288734493312106, guid: dd5917cbcf6666e4fa407385ec5e276d, type: 2}
   - {fileID: 1202655254235112, guid: b130509046757ca4fab59159a1949cf3, type: 2}
   - {fileID: 1972760912520096, guid: f8f193f52fde8834387d3a7d7af69dd4, type: 2}
+  - {fileID: 1861128096021340, guid: 6620577e3554a3642830954153a1ead3, type: 2}
+  - {fileID: 1202655254235112, guid: b130509046757ca4fab59159a1949cf3, type: 2}
+  - {fileID: 1972760912520096, guid: f8f193f52fde8834387d3a7d7af69dd4, type: 2}
   topRooms:
   - {fileID: 1972760912520096, guid: f8f193f52fde8834387d3a7d7af69dd4, type: 2}
   - {fileID: 1599165569209878, guid: 8fffc3aca4444db498191ef7682915f1, type: 2}
   - {fileID: 1431409528629720, guid: 961dd3c9fe0026941a0a2e7727a60331, type: 2}
+  - {fileID: 1819696743715748, guid: 49e40ec0b3b4b5840b557e5726418435, type: 2}
+  - {fileID: 1972760912520096, guid: f8f193f52fde8834387d3a7d7af69dd4, type: 2}
+  - {fileID: 1599165569209878, guid: 8fffc3aca4444db498191ef7682915f1, type: 2}
   - {fileID: 1819696743715748, guid: 49e40ec0b3b4b5840b557e5726418435, type: 2}
   leftRooms:
   - {fileID: 1861128096021340, guid: 6620577e3554a3642830954153a1ead3, type: 2}
   - {fileID: 1784853931359370, guid: 8e392096b193ce149b8ae0fb724af5d9, type: 2}
   - {fileID: 1952411998940060, guid: 53cf33dea81a18642ad80ee815763c2e, type: 2}
   - {fileID: 1599165569209878, guid: 8fffc3aca4444db498191ef7682915f1, type: 2}
+  - {fileID: 1599165569209878, guid: 8fffc3aca4444db498191ef7682915f1, type: 2}
+  - {fileID: 1952411998940060, guid: 53cf33dea81a18642ad80ee815763c2e, type: 2}
+  - {fileID: 1861128096021340, guid: 6620577e3554a3642830954153a1ead3, type: 2}
   rightRooms:
   - {fileID: 1819696743715748, guid: 49e40ec0b3b4b5840b557e5726418435, type: 2}
   - {fileID: 1623653269752716, guid: b846ff33bf2796d4ea7ef2a5d5b3866b, type: 2}
   - {fileID: 1952411998940060, guid: 53cf33dea81a18642ad80ee815763c2e, type: 2}
   - {fileID: 1202655254235112, guid: b130509046757ca4fab59159a1949cf3, type: 2}
+  - {fileID: 1202655254235112, guid: b130509046757ca4fab59159a1949cf3, type: 2}
+  - {fileID: 1952411998940060, guid: 53cf33dea81a18642ad80ee815763c2e, type: 2}
+  - {fileID: 1819696743715748, guid: 49e40ec0b3b4b5840b557e5726418435, type: 2}
   roomsTemplates:
   - roomType: 0
     roomPrefab: {fileID: 1784853931359370, guid: 8e392096b193ce149b8ae0fb724af5d9,
@@ -212,8 +225,6 @@ MonoBehaviour:
   - roomType: 10
     roomPrefab: {fileID: 1125638885279392, guid: 51452adaf4805554d8997eb973941df8,
       type: 2}
-  debugEndRoom: {fileID: 1526962253560964, guid: 0f8b38953f51d9a41be88a7753eeeb24,
-    type: 2}
 --- !u!114 &114824296011591020
 MonoBehaviour:
   m_ObjectHideFlags: 1

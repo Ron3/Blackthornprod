@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour {
+public class Character : MonoBehaviour, IDamageble {
 
 	[SerializeField] private float moveSpeed;
 	[SerializeField] private float shootRate;
@@ -23,6 +23,10 @@ public class Character : MonoBehaviour {
 
 	private void Update() {
 		currentTime += Time.deltaTime;
+	}
+
+	public void TakeDamage(float damage) {
+
 	}
 
 	public void MoveLeft() {
@@ -56,7 +60,8 @@ public class Character : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D collision) {
 		if (collision.CompareTag("Door")) {
 			Door door = collision.gameObject.GetComponent<Door>();
-			ActionsController.Instance.SendOnChangeRoom(door.RoomPosition);
+			ActionsController.Instance.SendOnChangeCameraPosition(door.RoomPosition);
+			ActionsController.Instance.SendOnChangeRoom(door.roomRef);
 		}
 	}
 

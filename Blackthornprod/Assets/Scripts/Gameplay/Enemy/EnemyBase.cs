@@ -18,7 +18,16 @@ public class EnemyBase : MonoBehaviour, IActivable, IDamageble {
 		currentState.OnEnter(this, PlayerController.Instance.CharacterTransform, roomRef);
 	}
 
+	public void Deactivate() {
+		currentStateIndex = 0;
+		currentState.OnExit();
+	}
+
 	public void TakeDamage(float damage) {
+		health -= damage;
+		if(health <= 0f) {
+			Kill();
+		}
 	}
 
 	public void ChangeState() {
@@ -35,6 +44,10 @@ public class EnemyBase : MonoBehaviour, IActivable, IDamageble {
 		if(currentState != null) {
 			currentState.OnUpdate();
 		}
+	}
+
+	protected virtual void Kill() {
+		Destroy(gameObject);
 	}
 
 }

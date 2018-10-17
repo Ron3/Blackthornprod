@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour {
 
-	private RoomTemplate roomRef;
+	public RoomTemplate roomRef { private set; get; }
 
 	public Vector3 RoomPosition {
 		get {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomMoveState : EnemyState {
+public class MoveToTarget : EnemyState {
 
 	[SerializeField] private float animTime;
 	[SerializeField] private float waitTime;
@@ -38,14 +38,14 @@ public class RandomMoveState : EnemyState {
 	private void OnStartAnim() {
 		startTime = Time.time;
 		startPos = enemyRef.gameObject.transform.position;
-		endPos = roomRef.GetRandomPosition();
+		endPos = target.position;
 		isMoving = true;
 	}
 	private void UpdateMove() {
 		float timeSinceStart = Time.time - startTime;
 		float percentage = timeSinceStart / animTime;
 		enemyRef.gameObject.transform.position = Vector3.Lerp(startPos, endPos, animCurve.Evaluate(percentage));
-		if(percentage >= 1.0f) {
+		if (percentage >= 1.0f) {
 			isMoving = false;
 			StopCoroutine("WaitCoroutine");
 			StartCoroutine("WaitCoroutine");
@@ -56,5 +56,4 @@ public class RandomMoveState : EnemyState {
 		yield return new WaitForSeconds(currentWaitTime);
 		OnStartAnim();
 	}
-
 }

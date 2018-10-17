@@ -32,9 +32,11 @@ public class WorldManager : MonoBehaviour {
 
 	public bool CanCreateRoom {
 		get {
-			return roomList.Count < 10;
+			return roomList.Count < GameManager.Instance.CurrentLevelInfo.maxNbOfRooms;
 		}
 	}
+
+	public RoomTemplate currentRoom { private set; get; }
 
 	public bool IsRoomCreatedOnPos(Vector3 position) {
 		for(int i = 0; i < roomList.Count; i++) {
@@ -46,8 +48,13 @@ public class WorldManager : MonoBehaviour {
 	}
 
 	private void Start() {
+		ActionsController.Instance.onChangeRoom += OnChangeRoom;
 		CreateRooms();
 		Invoke("AddBoss", addBossWaitTime);
+	}
+
+	private void OnDestroy() {
+		ActionsController.Instance.onChangeRoom -= OnChangeRoom;
 	}
 
 	private void CreateRooms() {
@@ -55,6 +62,8 @@ public class WorldManager : MonoBehaviour {
 		RoomTemplate roomPrefab = GetRoomTemplate(RoomsTypes.C).GetComponent<RoomTemplate>();
 		RoomTemplate room = Instantiate(roomPrefab, transform.position, roomPrefab.transform.rotation, roomsContainer);
 		startRoom = room;
+		currentRoom = startRoom;
+		currentRoom.ActivateRoom();
 		AddRoom(room);
 	}
 
@@ -106,6 +115,13 @@ public class WorldManager : MonoBehaviour {
 		roomList.Add(template);
 	}
 
+	public void OnChangeRoom(RoomTemplate template) {
+		if(currentRoom.gameObject.transform.GetSiblingIndex() != template.gameObject.transform.GetSiblingIndex()) {
+			currentRoom.DeactivateRoom();
+			currentRoom = template;
+			currentRoom.ActivateRoom();
+		}
+	}
 
 
 }

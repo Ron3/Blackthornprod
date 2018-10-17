@@ -127,13 +127,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainSceneCamera: {fileID: 1661899453250236}
   levelInfo:
-  - maxNbOfRooms: 10
-    maxNbOfEnemiesPerRoom: 4
+  - maxNbOfRooms: 20
+    maxNbOfEnemiesPerRoom: 6
     enemySpawnChance: 2
     levelBoss: {fileID: 114257951556279504, guid: 81f84e1b4dc07854684028de3490f370,
       type: 2}
     enemiesPrefabs:
     - {fileID: 114257951556279504, guid: 548779b8983b5a14e8b1e75e69501fcb, type: 2}
+    - {fileID: 114458875160541360, guid: bfe255e5a5788cc44a8d05a1c56c3e7a, type: 2}
+    - {fileID: 114257951556279504, guid: 16d244a15a9808d4eac37877159bbfdd, type: 2}
   - maxNbOfRooms: 0
     maxNbOfEnemiesPerRoom: 0
     enemySpawnChance: 0
