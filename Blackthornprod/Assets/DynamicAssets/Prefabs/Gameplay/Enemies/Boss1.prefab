@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4518809890770142}
   - component: {fileID: 114783093927688182}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CircleAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4496763038387934}
   - component: {fileID: 114752189836102774}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WaitState (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4943747167281638}
   - component: {fileID: 114793604958336006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WaitState (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4142468052197080}
   - component: {fileID: 114492078570824284}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CircleAttack (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4802584883126696}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpawnGameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4415706401421274}
   - component: {fileID: 114009330877431006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WaitState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4952837961819070}
   - component: {fileID: 114689032533484488}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CircleAttack (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 4934125929824366}
   - component: {fileID: 212261784018933548}
   - component: {fileID: 61837632805465536}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4361847777521470}
   - component: {fileID: 114998195476930584}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CircleAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4955512312879846}
   - component: {fileID: 114257951556279504}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Boss1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4247565082229600}
   - component: {fileID: 114655964806412802}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WaitState (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4616264879344930}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
@@ -211,7 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4309002633244442}
   - component: {fileID: 114338625206394918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CircleAttack (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4840156961830776}
   - component: {fileID: 114260077138676358}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WaitState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4302778134542968}
   - component: {fileID: 114198861411150942}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CircleAttack (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
