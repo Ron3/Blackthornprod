@@ -10,6 +10,7 @@ public class ShootAtTargetState : EnemyState {
 	[SerializeField] private float attackForce;
 	[SerializeField] private float bulletDamage;
 	[SerializeField] private EnemyBullet bulletPref;
+	[SerializeField] private GameObject shootPos;
 
 	private int currentRound;
 	private float currentWaitTime;
@@ -57,7 +58,7 @@ public class ShootAtTargetState : EnemyState {
 
 	private void Shoot() {
 		Vector2 dir = target.position - transform.position;
-		EnemyBullet bullet = Instantiate(bulletPref, transform.position, Quaternion.identity, WorldManager.Instance.currentRoom.transform);
+		EnemyBullet bullet = Instantiate(bulletPref, shootPos.transform.position, Quaternion.identity, WorldManager.Instance.currentRoom.transform);
 		bullet.Shoot(dir, attackForce, bulletDamage);
 	}
 

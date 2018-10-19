@@ -22,28 +22,33 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void Update() {
+		bool inIdle = true;
 		if (Input.GetKey(KeyCode.W)) {
 			character.MoveUp();
+			character.StartWalk();
+			inIdle = false;
 		}
 		if (Input.GetKey(KeyCode.S)) {
 			character.MoveDown();
+			character.StartWalk();
+			inIdle = false;
 		}
 		if (Input.GetKey(KeyCode.A)) {
 			character.MoveLeft();
+			character.StartWalk();
+			inIdle = false;
 		}
 		if (Input.GetKey(KeyCode.D)) {
 			character.MoveRight();
+			character.StartWalk();
+			inIdle = false;
 		}
 
-		if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow)) {
-			character.Shoot(Vector3.up + Vector3.left);
-		} else if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow)) {
-			character.Shoot(Vector3.up + Vector3.right);
-		} else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow)) {
-			character.Shoot(Vector3.down + Vector3.left);
-		} else if(Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow)) {
-			character.Shoot(Vector3.down + Vector3.right);
-		} else if (Input.GetKey(KeyCode.UpArrow)) {
+		if (inIdle) {
+			character.StartIdle();
+		}
+
+		if (Input.GetKey(KeyCode.UpArrow)) {
 			character.Shoot(Vector3.up);
 		} else if (Input.GetKey(KeyCode.DownArrow)) {
 			character.Shoot(Vector3.down);

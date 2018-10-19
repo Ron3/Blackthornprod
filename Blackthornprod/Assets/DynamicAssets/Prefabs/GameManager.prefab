@@ -135,7 +135,7 @@ MonoBehaviour:
     enemiesPrefabs:
     - {fileID: 114257951556279504, guid: 548779b8983b5a14e8b1e75e69501fcb, type: 2}
     - {fileID: 114458875160541360, guid: bfe255e5a5788cc44a8d05a1c56c3e7a, type: 2}
-    - {fileID: 114257951556279504, guid: 16d244a15a9808d4eac37877159bbfdd, type: 2}
+    - {fileID: 114394550998619420, guid: 16d244a15a9808d4eac37877159bbfdd, type: 2}
   - maxNbOfRooms: 0
     maxNbOfEnemiesPerRoom: 0
     enemySpawnChance: 0
