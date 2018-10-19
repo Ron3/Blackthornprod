@@ -15,13 +15,37 @@ public class PlayerController : MonoBehaviour {
 
 	[SerializeField] private Character character;
 
+	private void Start() {
+		ActionsController.Instance.onStartGame += OnStartGame;
+	}
+
 	public Transform CharacterTransform {
 		get {
 			return character.transform;
 		}
 	}
 
+	public float CharacterHealth {
+		get {
+			return character.health;
+		}
+	}
+
+	private void OnStartGame() {
+		character.transform.position = Vector2.zero;
+		character.StartGame();
+	}
+
 	private void Update() {
+
+		if (Input.GetKeyDown(KeyCode.Return)) {
+			ActionsController.Instance.SendOnEnterPressed();
+		} else if (Input.GetKeyDown(KeyCode.Space)) {
+			ActionsController.Instance.SendOnSpacePressed();
+		} else if (Input.GetKeyDown(KeyCode.Escape)) {
+			ActionsController.Instance.SendOnEscPressed();
+		}
+
 		bool inIdle = true;
 		if (Input.GetKey(KeyCode.W)) {
 			character.MoveUp();

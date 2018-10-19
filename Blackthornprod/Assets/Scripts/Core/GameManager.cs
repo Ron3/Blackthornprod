@@ -28,12 +28,20 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void Start() {
+		ActionsController.Instance.onStartGame += LoadWorld;
+		ActionsController.Instance.onEndGame += OnPlayerDeath;
 		currentLevel = 0;
-		LoadWorld();
+		UIManager.Instance.ChangePage(MenuPages.MainPage);
+	}
+
+	private void OnPlayerDeath() {
+		currentLevel = 0;
+		SceneManager.UnloadSceneAsync(1);
+		mainSceneCamera.gameObject.SetActive(true);
 	}
 
 	private void LoadWorld() {
-		Destroy(mainSceneCamera);
+		mainSceneCamera.gameObject.SetActive(false);
 		SceneManager.LoadScene(1, LoadSceneMode.Additive);
 	}
 }

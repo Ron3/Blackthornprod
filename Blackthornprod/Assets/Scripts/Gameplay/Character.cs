@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour, IDamageble {
 
+	[SerializeField] private float maxHealth;
 	[SerializeField] private float moveSpeed;
 	[SerializeField] private float shootRate;
 	[SerializeField] private float shootSpeed;
@@ -14,6 +15,7 @@ public class Character : MonoBehaviour, IDamageble {
 	[SerializeField] private Sprite backChSprite;
 	[SerializeField] private GameObject spawnPoint;
 
+	public float  health { private set; get; }
 	private Rigidbody2D rb;
 	private float currentTime;
 
@@ -31,6 +33,12 @@ public class Character : MonoBehaviour, IDamageble {
 		currentTime += Time.deltaTime;
 	}
 
+	public void StartGame() {
+		health = maxHealth;
+		animator.SetBool("IsWalking", false);
+		animator.SetBool("Dead", false);
+	}
+
 	public void StartWalk() {
 		bool isWalking = animator.GetBool("IsWalking");
 		if (!isWalking) {
@@ -46,7 +54,15 @@ public class Character : MonoBehaviour, IDamageble {
 	}
 
 	public void TakeDamage(float damage) {
+		health -= damage;
+		health = Mathf.Max(0f, health);
+		if (health <= 0f) {
+			animator.SetBool("Dead", true);
+		}
+	}
 
+	public void PlayerDeath() {
+		UIManager.Instance.ChangePage(MenuPages.MainPage);
 	}
 
 	public void MoveLeft() {

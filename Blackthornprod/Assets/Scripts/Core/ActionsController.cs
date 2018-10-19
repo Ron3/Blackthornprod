@@ -16,8 +16,45 @@ public class ActionsController {
 	}
 	private ActionsController() { }
 
+	public Action onEnterPressed;
+	public Action onSpacePressed;
+	public Action onEscPressed;
+	public Action onStartGame;
+	public Action onEndGame;
+
+
 	public Action<Vector3> onChangeCameraPosition;
 	public Action<RoomTemplate> onChangeRoom;
+
+	public void SendOnStartGame() {
+		if(onStartGame != null) {
+			onStartGame();
+		}
+	}
+
+	public void SendOnEndGame() {
+		if(onEndGame != null) {
+			onEndGame();
+		}
+	}
+
+	public void SendOnEscPressed() {
+		if(onEscPressed != null) {
+			onEscPressed();
+		}
+	}
+
+	public void SendOnSpacePressed() {
+		if(onSpacePressed != null) {
+			onSpacePressed();
+		}
+	}
+
+	public void SendOnEnterPressed() {
+		if(onEnterPressed != null) {
+			onEnterPressed();
+		}
+	}
 
 	public void SendOnChangeRoom(RoomTemplate room) {
 		if(onChangeRoom != null) {
