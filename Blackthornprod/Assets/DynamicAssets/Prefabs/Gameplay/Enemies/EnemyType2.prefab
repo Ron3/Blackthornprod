@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugRoom: {fileID: 0}
+  maxHealth: 50
   health: 50
   enemyStates:
   - {fileID: 114028652012966330}

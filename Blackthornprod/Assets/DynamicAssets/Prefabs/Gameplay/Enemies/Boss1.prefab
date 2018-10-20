@@ -910,7 +910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44474f5499c0cb44b2f6e79d43a035a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 1
+  direction: 0
   rotation: 360
   spawnPointGo: {fileID: 1976139016157916}
   spawnPoint: {fileID: 4106996312665500}
@@ -1014,11 +1014,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44474f5499c0cb44b2f6e79d43a035a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 1
+  direction: 0
   rotation: 360
   spawnPointGo: {fileID: 1976139016157916}
   spawnPoint: {fileID: 4106996312665500}
-  attackRate: 0.2
+  attackRate: 0.1
   attackForce: 10
   attackTime: 5
   attackDamage: 20
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
-  rotation: 360
+  rotation: -360
   spawnPointGo: {fileID: 1736606499395968}
   spawnPoint: {fileID: 4703248890670774}
   attackRate: 0.1
@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44474f5499c0cb44b2f6e79d43a035a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: -1
+  direction: 0
   rotation: 180
   spawnPointGo: {fileID: 1736606499395968}
   spawnPoint: {fileID: 4703248890670774}
