@@ -12,7 +12,7 @@ public class StoryPage : MenuPage {
 	private int currentIndex;
 
 	public override void OnShow() {
-		ActionsController.Instance.onSpacePressed += OnAction;
+		ActionsController.Instance.onEnterPressed += OnAction;
 		if(currentImage != null) {
 			currentImage.gameObject.SetActive(false);
 		}
@@ -21,7 +21,7 @@ public class StoryPage : MenuPage {
 	}
 
 	public override void OnHide() {
-		ActionsController.Instance.onSpacePressed -= OnAction;
+		ActionsController.Instance.onEnterPressed -= OnAction;
 	}
 
 	private void OnAction() {

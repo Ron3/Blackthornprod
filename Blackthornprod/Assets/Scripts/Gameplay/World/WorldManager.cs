@@ -30,6 +30,8 @@ public class WorldManager : MonoBehaviour {
 	private RoomTemplate startRoom;
 	private RoomTemplate endRoom;
 
+	public RoomTemplate boosRoom;
+
 	public bool CanCreateRoom {
 		get {
 			return roomList.Count < GameManager.Instance.CurrentLevelInfo.maxNbOfRooms;
@@ -71,6 +73,7 @@ public class WorldManager : MonoBehaviour {
 		for(int i = roomList.Count - 1; i >= 0; i--) {
 			if(roomList[i].gameObject.name != "ClosedRoom") {
 				roomList[i].AddBoss();
+				boosRoom = roomList[i];
 				return;
 			}
 		}

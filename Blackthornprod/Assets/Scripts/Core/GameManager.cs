@@ -16,8 +16,12 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	[SerializeField] private GameObject mainSceneCamera;
+	public GameObject heartPrefab;
+	public GameObject gamePrefab;
+ 	[SerializeField] private GameObject mainSceneCamera;
 	[SerializeField] private List<LevelInfo> levelInfo;
+
+
 
 	private int currentLevel;
 
@@ -52,6 +56,6 @@ public struct LevelInfo
 	public int maxNbOfRooms;
 	public int maxNbOfEnemiesPerRoom;
 	public int enemySpawnChance;
-	public EnemyBase levelBoss;
+	public Boss levelBoss;
 	public List<EnemyBase> enemiesPrefabs;
 }

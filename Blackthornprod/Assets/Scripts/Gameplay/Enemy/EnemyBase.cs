@@ -6,13 +6,15 @@ public class EnemyBase : MonoBehaviour, IActivable, IDamageble {
 
 	[SerializeField] private RoomTemplate debugRoom;
 
-	[SerializeField] protected float health;
+	public float maxHealth;
+	[SerializeField] public float health;
 	[SerializeField] protected List<EnemyState> enemyStates;
 	
 	private EnemyState currentState;
 	private int currentStateIndex;
 
 	public void Activate(RoomTemplate roomRef) {
+		health = maxHealth;
 		currentStateIndex = 0;
 		currentState = enemyStates[currentStateIndex];
 		currentState.OnEnter(this, PlayerController.Instance.CharacterTransform, roomRef);
@@ -47,6 +49,10 @@ public class EnemyBase : MonoBehaviour, IActivable, IDamageble {
 	}
 
 	protected virtual void Kill() {
+		int rand = Random.Range(0, 4);
+		if(rand == 1) {
+			Instantiate(GameManager.Instance.heartPrefab, transform.position, Quaternion.identity, WorldManager.Instance.currentRoom.transform);
+		}
 		Destroy(gameObject);
 	}
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CircleAttack : EnemyState {
 
 	[SerializeField] private int direction;
+	[SerializeField] private float rotation;
 	[SerializeField] private GameObject spawnPointGo;
 	[SerializeField] private Transform spawnPoint;
 	[SerializeField] private float attackRate;
@@ -40,8 +41,8 @@ public class CircleAttack : EnemyState {
 
 	private void StartAttack() {
 		startTime = Time.time;
-		startRot = direction == 1 ? Vector3.zero : new Vector3(0f,0f,360);
-		endRot = direction == 1 ? new Vector3(0f, 0f, 360f) : Vector3.zero;
+		startRot = direction == 1 ? Vector3.zero : new Vector3(0f,0f,rotation);
+		endRot = direction == 1 ? new Vector3(0f, 0f, rotation) : Vector3.zero;
 		isAttacking = true;
 		currentShootTime = 0;
 	}
@@ -63,7 +64,7 @@ public class CircleAttack : EnemyState {
 	private void Shoot() {
 		currentShootTime = 0f;
 		Vector2 dir = spawnPoint.position - spawnPointGo.transform.position;
-		EnemyBullet bullet = Instantiate(bulletPrefab, spawnPoint.position, Quaternion.identity, WorldManager.Instance.currentRoom.transform);
+		EnemyBullet bullet = Instantiate(bulletPrefab, spawnPointGo.transform.position, Quaternion.identity, WorldManager.Instance.currentRoom.transform);
 		bullet.Shoot(dir, attackForce, attackDamage);
 	}
 }

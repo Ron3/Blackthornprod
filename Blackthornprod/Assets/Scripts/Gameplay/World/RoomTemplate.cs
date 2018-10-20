@@ -9,7 +9,7 @@ public class RoomTemplate : MonoBehaviour {
 	private float maxX = 7.5f;
 	private float maxY = 3.5f;
 
-	private EnemyBase boss;
+	public Boss boss;
 	private List<EnemyBase> spawnedEnemies = new List<EnemyBase>();
 
 	private void Start() {
@@ -33,6 +33,7 @@ public class RoomTemplate : MonoBehaviour {
 
 		if(boss != null) {
 			boss.Activate(this);
+			ActionsController.Instance.SendOnBossActivate();
 			return;
 		}
 
@@ -63,7 +64,7 @@ public class RoomTemplate : MonoBehaviour {
 	private void CreateEnemies() {
 		LevelInfo ll = GameManager.Instance.CurrentLevelInfo;
 		int spawnChance = Random.Range(0, ll.enemySpawnChance);
-		if(spawnChance == 0) {
+		if(spawnChance == 0 || spawnChance == 1) {
 			int enemyNb = Random.Range(1, ll.maxNbOfEnemiesPerRoom);
 			int enemyType = Random.Range(0, ll.enemiesPrefabs.Count);
 			for(int i = 0; i < enemyNb; i++) {

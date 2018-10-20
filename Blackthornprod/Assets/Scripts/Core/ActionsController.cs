@@ -21,10 +21,18 @@ public class ActionsController {
 	public Action onEscPressed;
 	public Action onStartGame;
 	public Action onEndGame;
+	public Action onBossActivate;
+
 
 
 	public Action<Vector3> onChangeCameraPosition;
 	public Action<RoomTemplate> onChangeRoom;
+
+	public void SendOnBossActivate() {
+		if(onBossActivate != null) {
+			onBossActivate();
+		}
+	}
 
 	public void SendOnStartGame() {
 		if(onStartGame != null) {

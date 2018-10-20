@@ -13,7 +13,7 @@ public class MainPage : MenuPage {
 	}
 
 	private void OnAction() {
-		UIManager.Instance.ChangePage(MenuPages.StoryPage);
+		UIManager.Instance.ChangePage(MenuPages.InGamePage);
 	}
 
 }

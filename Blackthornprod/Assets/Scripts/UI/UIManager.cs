@@ -32,7 +32,6 @@ public class UIManager : MonoBehaviour {
 public enum MenuPages
 {
 	MainPage,
-	StoryPage,
 	InGamePage,
 	EndStoryPage
 }

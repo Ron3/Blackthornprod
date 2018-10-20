@@ -10,6 +10,7 @@ public class EnemyBullet : MonoBehaviour {
 
 	public void Shoot(Vector3 dir, float power, float d) {
 		damage = d;
+		rb.AddTorque(10f, ForceMode2D.Impulse);
 		rb.AddForce(dir.normalized * power, ForceMode2D.Impulse);
 	}
 

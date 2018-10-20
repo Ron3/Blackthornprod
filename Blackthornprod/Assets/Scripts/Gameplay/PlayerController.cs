@@ -19,6 +19,12 @@ public class PlayerController : MonoBehaviour {
 		ActionsController.Instance.onStartGame += OnStartGame;
 	}
 
+	public float CharacterMaxHealth {
+		get {
+			return character.maxHealth;
+		}
+	}
+
 	public Transform CharacterTransform {
 		get {
 			return character.transform;

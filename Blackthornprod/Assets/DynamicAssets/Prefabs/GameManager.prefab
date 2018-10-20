@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1890916932396268}
   m_IsPrefabParent: 1
+--- !u!1 &1553772581125620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4475541502167176}
+  - component: {fileID: 82508961303641784}
+  m_Layer: 0
+  m_Name: BackgroundMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1661899453250236
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,8 +84,22 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4055723358059668}
+  - {fileID: 4475541502167176}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4475541502167176
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1553772581125620}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4194609785630730}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &20236701775276740
 Camera:
@@ -114,6 +144,101 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1661899453250236}
   m_Enabled: 1
+--- !u!82 &82508961303641784
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1553772581125620}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8d268f228043f284398479bd29db3d37, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114643303712710082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,24 +250,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d7da98d72ae9a541bb4aa5e3d66897d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heartPrefab: {fileID: 1085183067318508, guid: cdc65b2d43d9dc54aa16babbc4ec2214,
+    type: 2}
+  gamePrefab: {fileID: 1043723150776066, guid: fc7dd25ac9fe86b4c8a701bccd96747b, type: 2}
   mainSceneCamera: {fileID: 1661899453250236}
   levelInfo:
-  - maxNbOfRooms: 20
-    maxNbOfEnemiesPerRoom: 6
-    enemySpawnChance: 2
-    levelBoss: {fileID: 114257951556279504, guid: 81f84e1b4dc07854684028de3490f370,
+  - maxNbOfRooms: 30
+    maxNbOfEnemiesPerRoom: 4
+    enemySpawnChance: 3
+    levelBoss: {fileID: 114745212113617614, guid: 81f84e1b4dc07854684028de3490f370,
       type: 2}
     enemiesPrefabs:
-    - {fileID: 114257951556279504, guid: 548779b8983b5a14e8b1e75e69501fcb, type: 2}
+    - {fileID: 114555033678465080, guid: 548779b8983b5a14e8b1e75e69501fcb, type: 2}
     - {fileID: 114458875160541360, guid: bfe255e5a5788cc44a8d05a1c56c3e7a, type: 2}
-    - {fileID: 114394550998619420, guid: 16d244a15a9808d4eac37877159bbfdd, type: 2}
-  - maxNbOfRooms: 0
-    maxNbOfEnemiesPerRoom: 0
-    enemySpawnChance: 0
-    levelBoss: {fileID: 0}
-    enemiesPrefabs: []
-  - maxNbOfRooms: 0
-    maxNbOfEnemiesPerRoom: 0
-    enemySpawnChance: 0
-    levelBoss: {fileID: 0}
-    enemiesPrefabs: []
+    - {fileID: 114594772391359574, guid: 16d244a15a9808d4eac37877159bbfdd, type: 2}
