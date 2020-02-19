@@ -42,6 +42,8 @@ public class RonController {
         }
         
         Animator animator = this.ronGo.GetComponent<Animator>();
-        // animator.SetBool();
+        animator.SetBool("isRun", true);
+
+        
     }
 }
