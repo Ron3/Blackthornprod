@@ -14,6 +14,7 @@ public class WorldCamera : MonoBehaviour {
 	private bool isLerping;
 
 	private void Start() {
+		Debug.Log($"cameraName ==> {this.gameObject.name}");
 		ActionsController.Instance.onChangeCameraPosition += OnChangeRoom;
 	}
 
