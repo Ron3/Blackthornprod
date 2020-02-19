@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour {
 	}
 
 	[SerializeField] List<MenuPage> menuPages;
+	// [SerializeField] List<GameObject> testPages;
 
 	private MenuPage currentPage;
 
