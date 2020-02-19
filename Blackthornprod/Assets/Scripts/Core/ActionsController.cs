@@ -38,6 +38,9 @@ public class ActionsController {
 		if(onStartGame != null) {
 			onStartGame();
 		}
+
+		// TODO Ron
+		RonController.Instance.startGame();
 	}
 
 	public void SendOnEndGame() {
@@ -62,6 +65,9 @@ public class ActionsController {
 		if(onEnterPressed != null) {
 			onEnterPressed();
 		}
+
+		// TODO Ron 我自己的测试代码
+		RonController.Instance.OnEnterPress();
 	}
 
 	public void SendOnChangeRoom(RoomTemplate room) {
@@ -75,5 +81,4 @@ public class ActionsController {
 			onChangeCameraPosition(roomPos);
 		}
 	}
-
 }
