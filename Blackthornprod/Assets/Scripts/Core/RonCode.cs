@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class RonController {
 
+    private GameObject ronGo;
+
 	private static RonController instance;
 	public static RonController Instance {
 		get {
@@ -28,14 +30,18 @@ public class RonController {
     /// </summary>
     public void startGame()
     {
-        GameObject ronGo = Resources.Load("RonAniGameObject") as GameObject;
+        string name = "RonAniGameObject";
+        this.ronGo = Resources.Load("RonAniGameObject") as GameObject;
         GameObject parent = GameObject.Find("GameManager");
         if(parent != null)
         {
-            ronGo = GameObject.Instantiate(ronGo);
-            ronGo.transform.parent = parent.transform;
-            Debug.Log($"Ron startGame ==> {ronGo.name}, parent ==> {ronGo.transform.parent.name}");   
+            this.ronGo = GameObject.Instantiate(this.ronGo);
+            this.ronGo.name = name;
+            this.ronGo.transform.parent = parent.transform;
+            Debug.Log($"Ron startGame ==> {this.ronGo.name}, parent ==> {this.ronGo.transform.parent.name}");   
         }
         
+        Animator animator = this.ronGo.GetComponent<Animator>();
+        // animator.SetBool();
     }
 }
