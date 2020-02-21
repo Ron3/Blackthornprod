@@ -5,6 +5,7 @@ public class RonController {
     private GameObject ronCharacter;
     private Animator ronAnimator;
     private float moveSpeed = 1.0f;
+    private GameObject bulletPrefab;
 
 	private static RonController instance;
 	public static RonController Instance {
@@ -15,7 +16,10 @@ public class RonController {
 			return instance;
 		}
 	}
-	private RonController() {}
+	private RonController() 
+    {
+        this.bulletPrefab = Resources.Load("ronBullet") as GameObject;
+    }
 
 
     /// <summary>
@@ -120,7 +124,7 @@ public class RonController {
     /// </summary>
     private void upArrowActionEvent()
     {
-
+        this.shoot(Vector3.up);
     }
 
 
@@ -129,7 +133,7 @@ public class RonController {
     /// </summary>
     private void downArrowActionEvent()
     {
-
+        this.shoot(Vector3.down);
     }
 
 
@@ -138,7 +142,7 @@ public class RonController {
     /// </summary>
     private void leftArrowActionEvent()
     {
-
+        this.shoot(Vector3.left);
     }
 
 
@@ -147,9 +151,14 @@ public class RonController {
     /// </summary>
     private void rightArrowActionEvent()
     {
-
+        this.shoot(Vector3.right);
     }
 
 
+    private void shoot(Vector3 direction)
+    {
+        GameObject b = GameObject.Instantiate(this.bulletPrefab, this.ronCharacter.transform.position, Quaternion.Euler(direction));
+        b.GetComponent<RonBullet>().Shoot(direction, 10);
+    }
 
 }
