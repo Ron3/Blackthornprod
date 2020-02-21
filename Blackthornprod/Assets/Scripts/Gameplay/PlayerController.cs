@@ -1,9 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-	
+
+	public Action wInputAction;
+	public Action aInputAction;
+	public Action sInputAction;
+	public Action dInputAction;
+
+	public Action UpArrowAction;
+	public Action DownArrowAction;
+	public Action LeftArrowAction;
+	public Action RightArrowAction;
+
+
 	public static PlayerController Instance { private set; get; }
 	private void Awake() {
 		if(Instance == null) {
@@ -57,35 +69,73 @@ public class PlayerController : MonoBehaviour {
 			character.MoveUp();
 			character.StartWalk();
 			inIdle = false;
+
+			if(this.wInputAction != null)
+			{
+				this.wInputAction();
+			}
 		}
 		if (Input.GetKey(KeyCode.S)) {
 			character.MoveDown();
 			character.StartWalk();
 			inIdle = false;
+
+			if(this.sInputAction != null)
+			{
+				this.sInputAction();
+			}
 		}
 		if (Input.GetKey(KeyCode.A)) {
 			character.MoveLeft();
 			character.StartWalk();
 			inIdle = false;
+
+			if(this.aInputAction != null)
+			{
+				this.aInputAction();
+			}	
 		}
 		if (Input.GetKey(KeyCode.D)) {
 			character.MoveRight();
 			character.StartWalk();
 			inIdle = false;
+
+			if(this.dInputAction != null)
+			{
+				this.dInputAction();
+			}
 		}
 
 		if (inIdle) {
 			character.StartIdle();
 		}
 
-		if (Input.GetKey(KeyCode.UpArrow)) {
-			character.Shoot(Vector3.up);
-		} else if (Input.GetKey(KeyCode.DownArrow)) {
-			character.Shoot(Vector3.down);
-		} else if (Input.GetKey(KeyCode.LeftArrow)) {
-			character.Shoot(Vector3.left);
-		} else if (Input.GetKey(KeyCode.RightArrow)) {
-			character.Shoot(Vector3.right);
+		// if (Input.GetKey(KeyCode.UpArrow)) {
+		// 	character.Shoot(Vector3.up);
+		// } else if (Input.GetKey(KeyCode.DownArrow)) {
+		// 	character.Shoot(Vector3.down);
+		// } else if (Input.GetKey(KeyCode.LeftArrow)) {
+		// 	character.Shoot(Vector3.left);
+		// } else if (Input.GetKey(KeyCode.RightArrow)) {
+		// 	character.Shoot(Vector3.right);
+		// }
+
+		// TODO Ron
+		if (Input.GetKey(KeyCode.UpArrow) && this.UpArrowAction != null) 
+		{
+			this.UpArrowAction();
+		} 
+		else if (Input.GetKey(KeyCode.DownArrow) && this.DownArrowAction != null) 
+		{
+			this.DownArrowAction();
+		}
+		else if (Input.GetKey(KeyCode.LeftArrow) && this.LeftArrowAction != null) 
+		{
+			this.LeftArrowAction();
+		}
+		else if (Input.GetKey(KeyCode.RightArrow) && this.RightArrowAction != null) 
+		{
+			this.RightArrowAction();
 		}
 	}
 

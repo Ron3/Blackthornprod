@@ -40,13 +40,15 @@ public class GameManager : MonoBehaviour {
 
 	private void OnPlayerDeath() {
 		currentLevel = 0;
-		SceneManager.UnloadSceneAsync(1);
+		// SceneManager.UnloadSceneAsync(1);
+		SceneManager.UnloadSceneAsync(2);
 		mainSceneCamera.gameObject.SetActive(true);
 	}
 
 	private void LoadWorld() {
 		mainSceneCamera.gameObject.SetActive(false);
-		SceneManager.LoadScene(1, LoadSceneMode.Additive);
+		// SceneManager.LoadScene(1, LoadSceneMode.Additive);
+		SceneManager.LoadScene(2, LoadSceneMode.Additive);
 	}
 }
 

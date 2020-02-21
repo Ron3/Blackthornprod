@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class RonController {
 
-    private GameObject ronGo;
+    private GameObject ronCharacter;
+    private Animator ronAnimator;
+    private float moveSpeed = 1.0f;
 
 	private static RonController instance;
 	public static RonController Instance {
@@ -30,18 +32,125 @@ public class RonController {
     /// </summary>
     public void startGame()
     {
+        // 1, 先把原来的角色从界面上隐藏掉
+        this._removeOldCharacter();
+
+        // 2, 注册信息
+        this._registerInputEvent();
+
         string name = "RonAniGameObject";
-        this.ronGo = Resources.Load("RonAniGameObject") as GameObject;
+        this.ronCharacter = Resources.Load("RonAniGameObject") as GameObject;
         GameObject parent = GameObject.Find("GameManager");
         if(parent != null)
         {
-            this.ronGo = GameObject.Instantiate(this.ronGo);
-            this.ronGo.name = name;
-            this.ronGo.transform.parent = parent.transform;
-            Debug.Log($"Ron startGame ==> {this.ronGo.name}, parent ==> {this.ronGo.transform.parent.name}");   
+            this.ronCharacter = GameObject.Instantiate(this.ronCharacter);
+            this.ronCharacter.name = name;
+            this.ronCharacter.transform.parent = parent.transform;
+            Debug.Log($"Ron startGame ==> {this.ronCharacter.name}, parent ==> {this.ronCharacter.transform.parent.name}");   
         }
         
-        Animator animator = this.ronGo.GetComponent<Animator>();
+        Animator animator = this.ronCharacter.GetComponent<Animator>();
         animator.SetBool("isRun", true);
+        this.ronAnimator = animator;
     }
+
+
+    /// <summary>
+    /// 先把对方的主角隐藏掉 
+    /// </summary>
+    private void _removeOldCharacter()
+    {
+        GameObject character = GameObject.Find("Character");
+        character.SetActive(false);
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void _registerInputEvent()
+    {
+        PlayerController.Instance.wInputAction += this.wInputEvent;
+        PlayerController.Instance.aInputAction += this.aInputEvent;
+        PlayerController.Instance.sInputAction += this.sInputEvent;
+        PlayerController.Instance.dInputAction += this.dInputEvent;
+
+        PlayerController.Instance.UpArrowAction += this.upArrowActionEvent;
+        PlayerController.Instance.DownArrowAction += this.downArrowActionEvent;
+        PlayerController.Instance.LeftArrowAction += this.leftArrowActionEvent;
+        PlayerController.Instance.RightArrowAction += this.rightArrowActionEvent;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void wInputEvent()
+    {
+        this.ronCharacter.transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
+        
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void aInputEvent()
+    {
+
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void sInputEvent()
+    {
+
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void dInputEvent()
+    {
+
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void upArrowActionEvent()
+    {
+
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void downArrowActionEvent()
+    {
+
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void leftArrowActionEvent()
+    {
+
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void rightArrowActionEvent()
+    {
+
+    }
+
+
+
 }
