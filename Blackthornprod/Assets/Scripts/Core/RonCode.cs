@@ -87,7 +87,6 @@ public class RonController {
     private void wInputEvent()
     {
         this.ronCharacter.transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
-        
     }
 
     /// <summary>
@@ -95,7 +94,7 @@ public class RonController {
     /// </summary>
     private void aInputEvent()
     {
-
+        this.ronCharacter.transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
     }
 
     /// <summary>
@@ -103,7 +102,7 @@ public class RonController {
     /// </summary>
     private void sInputEvent()
     {
-
+        this.ronCharacter.transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
     }
 
 
@@ -112,7 +111,7 @@ public class RonController {
     /// </summary>
     private void dInputEvent()
     {
-
+        this.ronCharacter.transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
     }
 
 
