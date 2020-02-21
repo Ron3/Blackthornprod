@@ -7,6 +7,8 @@ public class RonController {
     private float moveSpeed = 1.0f;
     private GameObject bulletPrefab;
 
+    private float currentTime = 0;
+
 	private static RonController instance;
 	public static RonController Instance {
 		get {
@@ -21,6 +23,17 @@ public class RonController {
         this.bulletPrefab = Resources.Load("ronBullet") as GameObject;
     }
 
+    /// <summary>
+    /// 是否能开枪
+    /// </summary>
+    /// <returns></returns>
+    private bool isCanShoot()
+    {
+        if(currentTime >= 0.3)
+            return true;
+        
+        return false;
+    }
 
     /// <summary>
     /// 当回车键按下
@@ -83,6 +96,8 @@ public class RonController {
         PlayerController.Instance.DownArrowAction += this.downArrowActionEvent;
         PlayerController.Instance.LeftArrowAction += this.leftArrowActionEvent;
         PlayerController.Instance.RightArrowAction += this.rightArrowActionEvent;
+
+        PlayerController.Instance.UpdateAction += this.Update;
     }
 
     /// <summary>
@@ -157,8 +172,22 @@ public class RonController {
 
     private void shoot(Vector3 direction)
     {
-        GameObject b = GameObject.Instantiate(this.bulletPrefab, this.ronCharacter.transform.position, Quaternion.Euler(direction));
-        b.GetComponent<RonBullet>().Shoot(direction, 10);
+        if(this.isCanShoot() == true)
+        {
+            GameObject ronGo = GameObject.Find("BulletContainer");
+            GameObject b = GameObject.Instantiate(this.bulletPrefab, this.ronCharacter.transform.position, Quaternion.Euler(direction));
+            b.transform.parent = ronGo.transform;
+            b.GetComponent<RonBullet>().Shoot(direction, 10);
+            this.currentTime = 0;
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void Update()
+    {
+        this.currentTime += Time.deltaTime;
     }
 
 }

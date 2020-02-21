@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour {
 	public Action LeftArrowAction;
 	public Action RightArrowAction;
 
+	public Action UpdateAction;
+
 
 	public static PlayerController Instance { private set; get; }
 	private void Awake() {
@@ -136,6 +138,11 @@ public class PlayerController : MonoBehaviour {
 		else if (Input.GetKey(KeyCode.RightArrow) && this.RightArrowAction != null) 
 		{
 			this.RightArrowAction();
+		}
+
+		if(this.UpdateAction != null)
+		{
+			this.UpdateAction();
 		}
 	}
 
