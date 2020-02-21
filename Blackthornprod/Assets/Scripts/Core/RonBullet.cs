@@ -29,10 +29,12 @@ public class RonBullet : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision) {
 		Debug.Log(collision.name);
-		if (collision.CompareTag("Enemy")) {
+		if (collision.CompareTag("Enemy")) 
+        {
 			collision.gameObject.GetComponent<IDamageble>().TakeDamage(damage);
+
+            StopCoroutine("DieCoroutine");
+		    Destroy(gameObject);
 		}
-		StopCoroutine("DieCoroutine");
-		Destroy(gameObject);
 	}
 }
