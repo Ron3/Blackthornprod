@@ -4,7 +4,7 @@ public class RonController {
 
     private GameObject ronCharacter;
     private Animator ronAnimator;
-    private float moveSpeed = 1.0f;
+    private float moveSpeed = 4.0f;
     private GameObject bulletPrefab;
 
     private float currentTime = 0;
