@@ -61,6 +61,7 @@ public class RonController {
         if(parent != null)
         {
             this.ronCharacter = GameObject.Instantiate(this.ronCharacter);
+            this.ronCharacter.AddComponent<RonCharacter>();
             this.ronCharacter.name = name;
             this.ronCharacter.transform.parent = parent.transform;
             Debug.Log($"Ron startGame ==> {this.ronCharacter.name}, parent ==> {this.ronCharacter.transform.parent.name}");   

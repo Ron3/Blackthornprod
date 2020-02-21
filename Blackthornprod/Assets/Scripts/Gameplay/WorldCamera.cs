@@ -23,6 +23,8 @@ public class WorldCamera : MonoBehaviour {
 	}
 
 	private void OnChangeRoom(Vector3 roomPos) {
+		Debug.Log("OnChangeRoom ===> ");
+
 		if (!IsTheSameRoom(roomPos)) {
 			changeStartTime = Time.time;
 			startPos = transform.position;
