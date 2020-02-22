@@ -115,7 +115,10 @@ public class RonController {
     private void aInputEvent()
     {
         this.ronCharacter.transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+        SpriteRenderer renderer = this.ronCharacter.GetComponent<SpriteRenderer>();
+        renderer.flipX = false;
     }
+
 
     /// <summary>
     /// 
@@ -132,6 +135,8 @@ public class RonController {
     private void dInputEvent()
     {
         this.ronCharacter.transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+        SpriteRenderer renderer = this.ronCharacter.GetComponent<SpriteRenderer>();
+        renderer.flipX = true;
     }
 
 
