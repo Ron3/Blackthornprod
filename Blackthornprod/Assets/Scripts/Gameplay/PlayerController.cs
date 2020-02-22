@@ -40,8 +40,15 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public Transform CharacterTransform {
-		get {
-			return character.transform;
+		get{
+			if(GameManager.Instance.sceneIndex == GameManager.Instance.newSceneIndex)
+			{
+				return RonController.Instance.ronCharacter.transform;
+			}
+			else
+			{
+				return character.transform;
+			}
 		}
 	}
 

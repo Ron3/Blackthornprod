@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RonController {
 
-    private GameObject ronCharacter;
+    public GameObject ronCharacter;
     private Animator ronAnimator;
     private float moveSpeed = 4.0f;
     private GameObject bulletPrefab;
