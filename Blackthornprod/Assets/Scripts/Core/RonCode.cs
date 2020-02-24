@@ -70,8 +70,14 @@ public class RonController {
         Animator animator = this.ronCharacter.GetComponent<Animator>();
         animator.SetBool("isRun", true);
         this.ronAnimator = animator;
-    }
 
+        // // copy MonoBehavior对象测试
+        // RonCharacter comp = this.ronCharacter.GetComponent<RonCharacter>();
+        // RonCharacter newComp = GameObject.Instantiate(comp);
+        // newComp.gameObject.transform.parent = parent.transform;
+        // newComp.gameObject.name = "copyObj";
+    }
+    
 
     /// <summary>
     /// 先把对方的主角隐藏掉 
