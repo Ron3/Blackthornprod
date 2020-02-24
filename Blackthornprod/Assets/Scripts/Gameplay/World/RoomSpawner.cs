@@ -59,11 +59,17 @@ public class RoomSpawner : MonoBehaviour {
 		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision) {
-		if (collision.CompareTag("SpawnPoint")) {
-			if (collision.GetComponent<RoomSpawner>().spawnedRoom == false && spawnedRoom == false) {
+	private void OnTriggerEnter2D(Collider2D collision) 
+	{
+		if (collision.CompareTag("SpawnPoint")) 
+		{
+
+			if (collision.GetComponent<RoomSpawner>().spawnedRoom == false && spawnedRoom == false) 
+			{
 				CreateSingleRoom(WorldManager.Instance.closedRoom);
-				Destroy(gameObject);
+				// Destroy(gameObject);
+				// Debug.Log($"Ron RoomSpawner OnTriggerEnter2D ===> {collision.gameObject.name}, currentGameObject ==>{this.gameObject.name}");
+				// Debug.Log($"collision.gameObject.Id ==> {collision.gameObject.GetHashCode()}, currentGameObject ==> {this.gameObject.GetHashCode()}");
 			}
 			spawnedRoom = true;
 		}

@@ -6,6 +6,9 @@ public class RonCharacter : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision) 
     {
+
+		// Debug.Log($"RonCharacter ==> {this.gameObject.name}, ==> {collision.gameObject.name}");
+
 		if (collision.CompareTag("Door")) {
 			Door door = collision.gameObject.GetComponent<Door>();
 			ActionsController.Instance.SendOnChangeCameraPosition(door.RoomPosition);
