@@ -67,7 +67,7 @@ public class draw : MonoBehaviour
     void DrawCircular()
     {
         //顶点
-        int segments = 12;
+        int segments = 24;
         float radius = 2f;
         Vector3 centerCircle = new Vector3(0, 0, 0);
 
@@ -92,22 +92,16 @@ public class draw : MonoBehaviour
         mesh.Clear();
  
         mesh.vertices = vertices;
-        mesh.triangles = new int[]
-        { 0, 1, 2,
-          0, 2, 3,
-          0, 3, 4,
-          0, 4, 5,
-          0, 5, 6,
-          0, 6, 7,
-          0, 7, 8,
-          0, 8, 9,
-          0, 9, 10,
-          0, 10, 11,
-          0, 11, 12,
-          0, 12, 1
-        //   0, 12, 13,
-        //   0, 14, 15,
-        //   0, 15, 16,
-        };
+        int[] triangles = new int[segments * 3];
+        for (int i = 0, j = 1; i < segments * 3 - 3; i += 3, j++)
+        {
+            triangles[i] = 0;
+            triangles[i + 1] = j + 1;
+            triangles[i + 2] = j;
+        }
+        triangles[segments * 3 - 3] = 0;
+        triangles[segments * 3 - 2] = 1;
+        triangles[segments * 3 - 1] = segments;
+        mesh.triangles = triangles;
     }
 }
